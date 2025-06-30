@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React weather application that displays current weather conditions for any city in the world or for your current location.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Search for weather by city name
+- Get weather for your current location
+- Display current temperature, weather conditions, humidity, wind speed, and more
+- Responsive design for desktop and mobile devices
+- Error handling for invalid searches and API issues
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React 19
+- TypeScript
+- OpenWeatherMap API
+- Axios for API requests
+- CSS for styling
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v16 or newer)
+- npm or yarn
+- OpenWeatherMap API key - [Get one for free here](https://openweathermap.org/api)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository
+```
+git clone <repository-url>
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Create a `.env` file in the root directory and add your API key
+```
+REACT_APP_API_KEY=your_openweathermap_api_key_here
+```
 
-### `npm run eject`
+4. Start the development server
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Using the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Type a city name in the search box and press Enter or click the Search button
+- Click the "Use My Location" button to get weather for your current location
+- The weather information will display below the search box
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Building for Production
 
-## Learn More
+```
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This will create a `build` folder with optimized production files.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Notes
+
+- The free tier of OpenWeatherMap API has usage limitations
+- For production use, consider upgrading to a paid plan if you expect high traffic
+- HTTPS is required for using the geolocation feature in production
