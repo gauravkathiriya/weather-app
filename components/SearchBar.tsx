@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { searchCities, WeatherSearchResponse } from '@/lib/services/weatherService';
-import './SearchBar.css';
+import { useState, useRef, useEffect } from "react";
+import { searchCities } from "@/lib/services/weatherService";
+import { WeatherSearchResponse } from "@/types/weather";
+import "./SearchBar.css";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
 export default function SearchBar({ onSearch }: SearchBarProps) {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<WeatherSearchResponse[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -18,13 +19,16 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setShowSuggestions(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -40,7 +44,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           setSuggestions(results.slice(0, 5));
           setShowSuggestions(true);
         } catch (error) {
-          console.error('Error searching cities:', error);
+          console.error("Error searching cities:", error);
           setSuggestions([]);
         } finally {
           setIsSearching(false);
@@ -62,14 +66,14 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     e.preventDefault();
     if (query.trim()) {
       onSearch(query);
-      setQuery('');
+      setQuery("");
       setShowSuggestions(false);
     }
   };
 
   const handleSuggestionClick = (city: WeatherSearchResponse) => {
     onSearch(`${city.name}, ${city.country}`);
-    setQuery('');
+    setQuery("");
     setShowSuggestions(false);
   };
 
@@ -84,7 +88,11 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           className="search-input"
           autoComplete="off"
         />
-        <button type="submit" className="search-button" disabled={!query.trim()}>
+        <button
+          type="submit"
+          className="search-button"
+          disabled={!query.trim()}
+        >
           🔍 Search
         </button>
       </form>
@@ -115,4 +123,3 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     </div>
   );
 }
-
