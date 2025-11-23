@@ -1,0 +1,84 @@
+.hourly-forecast {
+  width: 100%;
+  max-width: 800px;
+  color: var(--text-light);
+}
+
+.forecast-title {
+  font-size: 1.5rem;
+  margin: 0 0 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hourly-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
+.hour-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 90px;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.hour-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.hour-item.current-hour {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+}
+
+.hour-time {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.hour-icon {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.hour-temp {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.hour-precip {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hour-item {
+    min-width: 80px;
+    padding: 12px 8px;
+  }
+
+  .hour-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hour-temp {
+    font-size: 1.1rem;
+  }
+}
+

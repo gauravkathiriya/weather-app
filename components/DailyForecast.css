@@ -1,0 +1,154 @@
+.daily-forecast {
+  width: 100%;
+  max-width: 800px;
+  color: var(--text-light);
+}
+
+.forecast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.forecast-day {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.forecast-day:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.day-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.today-badge {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.day-moon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.moon-phase {
+  font-size: 1.25rem;
+}
+
+.moon-text {
+  opacity: 0.9;
+}
+
+.day-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.day-condition {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-icon {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.day-desc {
+  font-size: 1rem;
+  text-transform: capitalize;
+  opacity: 0.95;
+}
+
+.day-temps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-max {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.day-min {
+  font-size: 1.25rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.day-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .forecast-day {
+    padding: 15px;
+  }
+
+  .day-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .day-temps {
+    align-self: flex-end;
+  }
+
+  .day-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

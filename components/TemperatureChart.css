@@ -1,0 +1,42 @@
+.temperature-chart {
+  width: 100%;
+  color: var(--text-light);
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .chart-legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+

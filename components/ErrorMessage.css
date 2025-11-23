@@ -1,0 +1,60 @@
+.error-message {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 107, 107, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: var(--text-light);
+  animation: slideDown 0.3s ease-out;
+}
+
+.error-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+}
+
+.error-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.error-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.error-dismiss {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.error-dismiss:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
