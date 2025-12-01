@@ -15,6 +15,7 @@ import UnitToggle from "@/components/UnitToggle";
 import ThemeToggle from "@/components/ThemeToggle";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import ErrorMessage from "@/components/ErrorMessage";
+import Navigation from "@/components/Navigation";
 import { getBackgroundGradient } from "@/lib/utils/weatherHelpers";
 import "./page.css";
 
@@ -122,6 +123,8 @@ export default function Home() {
             <UnitToggle units={units} onToggle={toggleUnits} />
           </div>
         </header>
+
+        <Navigation />
 
         <SearchBar onSearch={handleSearch} />
 

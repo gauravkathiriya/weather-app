@@ -7,9 +7,11 @@ import "./SearchBar.css";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
+  placeholder?: string;
+  showSuggestions?: boolean;
 }
 
-export default function SearchBar({ onSearch }: SearchBarProps) {
+export default function SearchBar({ onSearch, placeholder = "Search for a city...", showSuggestions: enableSuggestions = true }: SearchBarProps) {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<WeatherSearchResponse[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -32,6 +34,12 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
   }, []);
 
   useEffect(() => {
+    if (!enableSuggestions) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
     if (debounceTimer.current) {
       clearTimeout(debounceTimer.current);
     }
@@ -60,7 +68,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
         clearTimeout(debounceTimer.current);
       }
     };
-  }, [query]);
+  }, [query, enableSuggestions]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,7 +90,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
       <form onSubmit={handleSubmit} className="search-form">
         <input
           type="text"
-          placeholder="Search for a city..."
+          placeholder={placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="search-input"
